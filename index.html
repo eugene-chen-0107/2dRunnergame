@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Stickman Runner - No Internet Game</title>
+  <meta name="description"
+    content="An endless runner game featuring a stick figure with smooth animations, obstacles, day/night cycles, and sound effects!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="game-wrapper">
+    <!-- Header Controls & HUD -->
+    <header class="game-header">
+      <div class="brand">
+        <span class="offline-icon">🏃</span>
+        <h1>STICKMAN RUNNER</h1>
+      </div>
+      <div class="header-controls">
+        <button id="sound-btn" class="icon-btn" title="Toggle Sound (M)" aria-label="Toggle Sound">
+          <span id="sound-icon">🔊</span>
+        </button>
+        <button id="theme-btn" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Canvas Game Container -->
+    <div class="canvas-container" id="canvas-container">
+      <canvas id="gameCanvas" width="900" height="300"></canvas>
+
+      <!-- Overlay Screen (Start / Game Over) -->
+      <div id="game-overlay" class="overlay">
+        <div class="overlay-content">
+          <div id="start-screen" class="screen">
+            <div class="stickman-preview">
+              <svg class="preview-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="25" r="12" stroke="#ffffff" stroke-width="4" fill="none" />
+                <line x1="50" y1="37" x2="50" y2="65" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                <line x1="50" y1="45" x2="30" y2="55" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                <line x1="50" y1="45" x2="70" y2="35" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                <line x1="50" y1="65" x2="32" y2="88" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+                <line x1="50" y1="65" x2="68" y2="88" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h2>NO INTERNET</h2>
+            <p class="subtitle">Press <kbd>SPACE</kbd> or <kbd>UP ARROW</kbd> to Start</p>
+          </div>
+
+          <div id="game-over-screen" class="screen hidden">
+            <h2 class="game-over-title">GAME OVER</h2>
+            <div class="final-score-box">
+              <p>SCORE: <span id="final-score">00000</span></p>
+              <p>BEST: <span id="final-high-score">00000</span></p>
+            </div>
+            <button id="restart-btn" class="restart-btn">
+              <span class="refresh-icon">↻</span> RESTART
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-Screen Controls for Touch / Mobile Devices -->
+    <div class="touch-controls">
+      <button id="touch-duck" class="touch-btn duck-btn">
+        <span>↓</span> DUCK
+      </button>
+      <button id="touch-jump" class="touch-btn jump-btn">
+        <span>↑</span> JUMP
+      </button>
+    </div>
+
+    <!-- Keyboard Instructions -->
+    <footer class="controls-guide">
+      <div class="key-hint"><kbd>SPACE</kbd> / <kbd>▲</kbd> / <kbd>W</kbd> Jump</div>
+      <div class="key-hint"><kbd>▼</kbd> / <kbd>S</kbd> Duck / Fast Fall</div>
+      <div class="key-hint"><kbd>P</kbd> Pause</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
